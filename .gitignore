@@ -77,6 +77,10 @@ typings/
 
 # Next.js build output
 .next
+# next.js
+/.next/
+/out/
+/build
 
 # Nuxt.js build / generate output
 .nuxt
@@ -102,3 +106,18 @@ dist
 
 # TernJS port file
 .tern-port
+
+# playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+.env*
+
+
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
