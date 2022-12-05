@@ -11,6 +11,8 @@ import "react-tabulator/css/tabulator.min.css"; // default
 
 import { ReactTabulator } from 'react-tabulator';
 
+
+
 export function getStaticProps() {
   const {lastPath} = require('../isbn/lastPath.js');
  
@@ -29,7 +31,7 @@ export function getStaticProps() {
       return {
         title: col,
         field: col,        
-        minWidth: 120,
+        minWidth: 150,
         responsive: 1,
       }
     }
@@ -38,6 +40,7 @@ export function getStaticProps() {
       title: col,
       field: col,
       headerFilter: "input",
+      headerFilterPlaceholder:'🔎︎ Search book',
       minWidth: 320,
       responsive:0,
       dir:"asc"
@@ -72,19 +75,48 @@ export function getStaticProps() {
   }
 }
 
+let height;
+
+try {
+  height = window.innerHeight - 8 - 17 - 8 - 6;
+} catch {
+
+}
+
 export default function SSGPage({
   folder,
   columns,
   rows,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <div>{folder} 
+  return <div><p style={{
+    margin:'0px',
+    marginLeft: '4px',
+    fontSize: '12px',
+    marginTop:'-8px',
+  }}>{folder}</p>
   <div>
  
   <ReactTabulator columns={columns} data={rows} options={
     {
       responsiveLayout: 'collapse',
+      height: height || 'auto'
     }
   } />
+  
+  <style global>
+    {`
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+      body {
+        margin: 8px 0px;
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      [tabulator-field="Title"] {
+        color: #b10000 !important;
+        font-weight: bolder;
+      }
+    `}
+  </style>
   </div>
   </div>
   

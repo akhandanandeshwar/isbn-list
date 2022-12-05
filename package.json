@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@next/font": "^13.0.6",
     "next": "^12.3.4",
     "next-plugin-preact": "latest",
     "preact": "^10.10.6",
