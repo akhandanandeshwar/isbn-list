@@ -78,7 +78,7 @@ export function getStaticProps() {
 let height;
 
 try {
-  height = window.innerHeight - 8 - 17 - 8 - 6;
+  height = window.innerHeight - 8 - 8 - 9;
 } catch {
 
 }
